@@ -1,0 +1,55 @@
+{
+  "name": "neeo-driver-ring-doorbell",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "DEBUG=neeo:* node index"
+  },
+  "keywords": [],
+  "author": "Shepless (http://shepless.github.io/)",
+  "license": "ISC",
+  "dependencies": {
+    "enjoi": "^3.2.3",
+    "felicity": "^2.4.8",
+    "joi": "^13.3.0",
+    "neeo-sdk": "^0.49.2",
+    "ring-api": "^2.0.8"
+  },
+  "neeo": {
+    "settings": {
+      "schema": {
+        "type": "object",
+        "properties": {
+          "port": {
+            "description": "The port this driver will run on",
+            "type": "number",
+            "default": 5010
+          },
+          "sensorResetTime": {
+            "description": "After a doorbell event, how long should we wait before resetting the sensors?",
+            "type": "number",
+            "default": 10000
+          },
+          "credentials": {
+            "type": "object",
+            "properties": {
+              "email": {
+                "description": "Email Address",
+                "type": "string"
+              },
+              "password": {
+                "description": "Password",
+                "type": "string"
+              }
+            },
+            "required": [
+              "email",
+              "password"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
